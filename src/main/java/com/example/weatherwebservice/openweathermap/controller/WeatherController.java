@@ -22,13 +22,13 @@ public class WeatherController {
     WeatherService weatherService;
     WeatherRecordService weatherRecordService;
 
-    @GetMapping("/test")
+    @GetMapping("/health")
     public String testWeatherWebService() {
-        return "Microservice up!";
+        return "Weather web service up!";
     }
 
-    @RequestMapping("/weather")
-    public ModelAndView index(HttpServletRequest request) throws IOException, RateLimitedException {
+    @GetMapping("/weather")
+    public ModelAndView getCurrentWeather() throws IOException, RateLimitedException {
         final Long id = weatherService.getCurrentWeatherInfoId();
         return weatherService.getCurrentWeatherModelAndView(id);
     }
