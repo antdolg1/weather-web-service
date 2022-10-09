@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -21,18 +22,19 @@ public class IpInfoRecordData {
     private String ipAddress;
     private String countryCode;
     private String city;
+    private LocalDateTime requestDate;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         IpInfoRecordData that = (IpInfoRecordData) o;
-        return Objects.equals(id, that.id) && Objects.equals(ipAddress, that.ipAddress) && Objects.equals(countryCode, that.countryCode) && Objects.equals(city, that.city);
+        return Objects.equals(id, that.id) && Objects.equals(ipAddress, that.ipAddress) && Objects.equals(countryCode, that.countryCode) && Objects.equals(city, that.city) && Objects.equals(requestDate, that.requestDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, ipAddress, countryCode, city);
+        return Objects.hash(id, ipAddress, countryCode, city, requestDate);
     }
 }
 

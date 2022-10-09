@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
@@ -22,6 +24,7 @@ public class IpInfoRecordServiceImpl implements IpInfoRecordService {
     public IpInfoRecordData createNewIpInfoRecord(final String ipAddress) {
         final IpInfoRecordData ipInfo = new IpInfoRecordData();
         ipInfo.setIpAddress(ipAddress);
+        ipInfo.setRequestDate(LocalDateTime.now());
         saveIpInfoRecord(ipInfo);
         return ipInfo;
     }

@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Client IP</title>
+    <h1>Weather info: <span th:text="${description}"/></h1>
 </head>
 <body>
-    <h1>Your IP Address: <span th:text="${clientIp}"></span></h1>
+    <h2>Location: <span th:text="${location}"/></h2>
+    <h2>Temperature: <span th:text="${temperature}"/> °C</h2>
+    <h2>Feels like: <span th:text="${feelsLike}"/> °C</h2>
+    <h2>Pressure: <span th:text="${pressure}"/> hPa</h2>
+    <h2>Humidity: <span th:text="${humidity}"/> %</h2>
+    <h2>Date & time: <span th:text="${dateTime}"/></h2>
 </body>
 </html>
