@@ -21,7 +21,7 @@ public class WeatherRecordServiceImpl  implements WeatherRecordService {
     WeatherRecordRepository weatherRecordRepository;
 
     @Override
-    public WeatherRecordData createNewWeatherRecord(String location) {
+    public WeatherRecordData createNewWeatherRecord(final String location) {
         final WeatherRecordData weatherRecord = new WeatherRecordData();
         weatherRecord.setLocation(location);
         weatherRecord.setDate(LocalDateTime.now());
@@ -37,7 +37,7 @@ public class WeatherRecordServiceImpl  implements WeatherRecordService {
 
     @Override
     @Cacheable("weatherdata")
-    public WeatherRecordData getWeatherRecordDataById(Long id) {
+    public WeatherRecordData getWeatherRecordDataById(final Long id) {
         return weatherRecordRepository.findById(id).orElseThrow(WeatherRecordLookupException.byId(id));
     }
 }

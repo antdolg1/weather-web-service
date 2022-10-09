@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class WeatherMappingServiceImpl implements WeatherMappingService {
     @Override
-    public WeatherRecordData mapWeatherResponse(WeatherResponseDto source, WeatherRecordData target) {
+    public WeatherRecordData mapWeatherResponse(final WeatherResponseDto source, final WeatherRecordData target) {
 
         final Optional<WeatherDto> first = Arrays.stream(source.getWeather()).findFirst();
         first.ifPresent(weatherDto -> target.setDescription(weatherDto.getDescription()));
