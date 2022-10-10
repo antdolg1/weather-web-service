@@ -1,19 +1,16 @@
 package com.example.weatherwebservice.ipinfo.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-@Entity
 @Getter
 @Setter
-@ToString
-@RequiredArgsConstructor
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 @Table(name = "ip_info_records")
 public class IpInfoRecordData {
     @Id
@@ -23,19 +20,6 @@ public class IpInfoRecordData {
     private String countryCode;
     private String city;
     private LocalDateTime requestDate;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        IpInfoRecordData that = (IpInfoRecordData) o;
-        return Objects.equals(id, that.id) && Objects.equals(ipAddress, that.ipAddress) && Objects.equals(countryCode, that.countryCode) && Objects.equals(city, that.city) && Objects.equals(requestDate, that.requestDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, ipAddress, countryCode, city, requestDate);
-    }
 }
 
 
