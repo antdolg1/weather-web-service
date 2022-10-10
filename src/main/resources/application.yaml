@@ -1,3 +1,4 @@
+#in real project api keys and other sensitive data would be stored as env variables
 openweathermap:
   apikey: 2823af86a678bf73da77019141f07859
   host: https://api.openweathermap.org
